@@ -8,12 +8,12 @@ from keep_alive import keep_alive
 
 status = "online"
 
-GUILD_ID = os.getenv("GUILD_ID")
-CHANNEL_ID = os.getenv("CHANNEL_ID")
-SELF_MUTE = os.getenv("SELF_MUTE", "True").lower() in ("true", "1", "yes")
-SELF_DEAF = os.getenv("SELF_DEAF", "False").lower() in ("true", "1", "yes")
+GUILD_ID = os.getenv("GUILD_ID", "").strip()
+CHANNEL_ID = os.getenv("CHANNEL_ID", "").strip()
+SELF_MUTE = os.getenv("SELF_MUTE", "True").strip().lower() in ("true", "1", "yes")
+SELF_DEAF = os.getenv("SELF_DEAF", "False").strip().lower() in ("true", "1", "yes")
 
-usertoken = os.getenv("TOKEN")
+usertoken = os.getenv("TOKEN", "").strip()
 if not all([usertoken, GUILD_ID, CHANNEL_ID]):
   print("[ERROR] Please set TOKEN, GUILD_ID, and CHANNEL_ID environment variables.")
   sys.exit()
