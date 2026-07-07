@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: stay-in-vc
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: TOKEN
+        sync: false
+      - key: GUILD_ID
+        sync: false
+      - key: CHANNEL_ID
+        sync: false
+      - key: SELF_MUTE
+        value: "True"
+        sync: false
+      - key: SELF_DEAF
+        value: "False"
+        sync: false
